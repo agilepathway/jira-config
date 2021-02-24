@@ -1,7 +1,7 @@
 # jira-config
 
 [![Gauge Badge](https://gauge.org/Gauge_Badge.svg)](https://gauge.org)
-[![forthebadge made-with-python](http://ForTheBadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
+[![forthebadge made-with-python](https://forthebadge.com/images/badges/made-with-python.svg)](https://www.python.org/)
 
 [![Gauge](https://github.com/agilepathway/jira-config/workflows/FTs/badge.svg)](https://github.com/agilepathway/jira-config/actions?query=workflow%3A%22FTs%22+branch%3Amaster)
 [![reviewdog](https://github.com/agilepathway/jira-config/workflows/reviewdog/badge.svg)](https://github.com/agilepathway/jira-config/actions?query=workflow%3Areviewdog+event%3Apush+branch%3Amaster)
