@@ -1,45 +1,24 @@
-from getgauge.python import step, before_scenario, Messages
-
-vowels = ["a", "e", "i", "o", "u"]
-
-
-def number_of_vowels(word):
-    return len([elem for elem in list(word) if elem in vowels])
+from getgauge.python import step
+from step_impl.bot import Bot, INTERNAL_EMPLOYEES_GROUP
 
 
-# --------------------------
-# Gauge step implementations
-# --------------------------
+@step("An internal employee can see all projects")
+def an_internal_employee_can_see_all_projects():
+    assert len(Bot.internal_employee.projects()) == len(Bot.jira_admin.projects())
 
 
-@step("The word <word> has <number> vowels.")
-def assert_no_of_vowels_in(word, number):
-    assert str(number) == str(number_of_vowels(word))
+@step("An internal employee is a member of the internal employees group")
+def an_internal_employee_is_a_member_of_the_internal_employees_group():
+    assert Bot.jira_admin.is_user_in_group(
+        Bot.internal_employee.username, INTERNAL_EMPLOYEES_GROUP
+    )
 
 
-@step("Vowels in English language are <vowels>.")
-def assert_default_vowels(given_vowels):
-    Messages.write_message("Given vowels are {0}".format(given_vowels))
-    assert given_vowels == "".join(vowels)
+@step("There is a jira-internal-employee-users group")
+def there_is_a_jira_internal_employee_users_group():
+    assert Bot.jira_admin.has_group(INTERNAL_EMPLOYEES_GROUP)
 
 
-@step("Almost all words have vowels <table>")
-def assert_words_vowel_count(table):
-    actual = [
-        str(number_of_vowels(word))
-        for word in table.get_column_values_with_name("Word")
-    ]
-    expected = [
-        str(count) for count in table.get_column_values_with_name("Vowel Count")
-    ]
-    assert expected == actual
-
-
-# ---------------
-# Execution Hooks
-# ---------------
-
-
-@before_scenario()
-def before_scenario_hook():
-    assert "".join(vowels) == "aeiou"
+@step("Not implemented yet")
+def not_implemented_yet():
+    assert False, "Add implementation code"

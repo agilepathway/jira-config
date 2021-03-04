@@ -13,11 +13,11 @@
 
 Verifies a Jira configuration through executable specifications
 
+[How to run the specs](CONTRIBUTING.md#local-development)
+
 ## Suggestions / bug reports / contributions
 
 The project is [open source](https://opensource.guide/how-to-contribute/) and all contributions are very welcome
 :slightly_smiling_face: :boom: :thumbsup:
-
-* [How to report a bug or suggest a new feature](CONTRIBUTING.md#how-to-report-a-bug-or-suggest-a-new-feature)
 
 * [How to contribute](CONTRIBUTING.md#how-to-make-a-contribution)
