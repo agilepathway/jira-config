@@ -101,7 +101,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.4
       - name: pyflakes
-        uses: reviewdog/action-pyflakes@v1.3.0
+        uses: reviewdog/action-pyflakes@v1.5.1
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-check
