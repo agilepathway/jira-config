@@ -6,18 +6,18 @@ on: # yamllint disable-line rule:truthy
 jobs:
   yamllint:
     name: runner / yamllint
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.3.4
       - name: yamllint
-        uses: reviewdog/action-yamllint@v1.2
+        uses: reviewdog/action-yamllint@v1.6.1
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-check
 
   markdownlint:
     name: runner / markdownlint ${{ matrix.pattern }}
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     strategy:
       matrix:
         # Make sure we lint all markdown files including in hidden directories
@@ -34,11 +34,11 @@ jobs:
 
   shellcheck:
     name: runner / shellcheck
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.3.4
       - name: shellcheck
-        uses: reviewdog/action-shellcheck@v1.5
+        uses: reviewdog/action-shellcheck@v1.15.0
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-check
@@ -48,7 +48,7 @@ jobs:
 
   hadolint:
     name: runner / hadolint
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - name: Check out code
         uses: actions/checkout@v2.3.4
@@ -60,17 +60,17 @@ jobs:
 
   misspell:
     name: runner / misspell
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.3.4
-      - uses: reviewdog/action-misspell@v1.7
+      - uses: reviewdog/action-misspell@v1.12.2
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-check
 
   languagetool:
     name: runner / languagetool
-    runs-on: ubuntu-20.04
+    runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v2.3.4
       - uses: reviewdog/action-languagetool@v1.5
@@ -101,7 +101,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2.3.4
       - name: pyflakes
-        uses: reviewdog/action-pyflakes@v1.3.0
+        uses: reviewdog/action-pyflakes@v1.7.0
         with:
           github_token: ${{ secrets.github_token }}
           reporter: github-check
