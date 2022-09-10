@@ -31,6 +31,9 @@ jobs:
           gauge-plugins: python, html-report
 
       - name: FTs
+        env:
+          # Python env var is temporary workaround for https://github.com/getgauge/gauge-python/issues/256
+          PROTOCOL_BUFFERS_PYTHON_IMPLEMENTATION: python
         run: gauge run specs
 
       - name: Upload logs
